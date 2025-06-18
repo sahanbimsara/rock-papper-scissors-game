@@ -1,5 +1,3 @@
-package edu.icet.ecom;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -36,7 +34,7 @@ public class Main {
             System.out.println("It's a Tie");
         } else if (playerChoice.equals("rock") && computerChoice.equals("scissors")) {
             System.out.println("You Win");
-        } else if ( ) {
+        } else if (playerChoice.equals(computerChoice)) {
 
         } else {
             System.out.println("You lose!");
