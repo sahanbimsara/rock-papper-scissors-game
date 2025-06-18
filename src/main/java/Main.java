@@ -12,33 +12,43 @@ public class Main {
         String[] choices = {"rock","papper","scissors"};
         String playerChoice;
         String computerChoice;
-        String playAgain;
+        String playAgain = "yes";
 
         //player choice
 
-        System.out.print("Enter your move rock,papper,scissors : ");
-        playerChoice = scanner.nextLine().toLowerCase();
+        do {
+            System.out.print("Enter your move rock,papper,scissors : ");
+            playerChoice = scanner.nextLine().toLowerCase();
 
-        if (!playerChoice.equals("rock") &&
-                !playerChoice.equals("papper")&&
-                !playerChoice.equals("scissorts")){
-            System.out.println("Invalid choice");
-        }
+            if (!playerChoice.equals("rock") &&
+                    !playerChoice.equals("papper")&&
+                    !playerChoice.equals("scissorts")){
+                System.out.println("Invalid choice");
+                continue;
+            }
 
-        //computer Choice
+            //computer Choice
 
-        computerChoice = choices[random.nextInt(3)];
-        System.out.println("Computer choice :"+computerChoice);
+            computerChoice = choices[random.nextInt(3)];
+            System.out.println("Computer choice :"+computerChoice);
 
-        if (playerChoice.equals(computerChoice)){
-            System.out.println("It's a Tie");
-        } else if (playerChoice.equals("rock") && computerChoice.equals("scissors")) {
-            System.out.println("You Win");
-        } else if (playerChoice.equals(computerChoice)) {
+            if (playerChoice.equals(computerChoice)){
+                System.out.println("It's a Tie");
+            } else if ((playerChoice.equals("rock") && computerChoice.equals("scissors")) ||
+                    (playerChoice.equals("papper") && computerChoice.equals("rock")) ||
+                    playerChoice.equals("scissors") && computerChoice.equals("papper")) {
+                System.out.println("You Win");
+            }else {
+                System.out.println("You lose!");
+            }
+            System.out.print("Play again (yes/no) : ");
+            playAgain = scanner.nextLine().toLowerCase();
 
-        } else {
-            System.out.println("You lose!");
-        }
+        }while (playAgain.equals("yes"));
+
+        System.out.println("Thanks for playing!");
+
+
 
 
         // 01. Daclare Variables
